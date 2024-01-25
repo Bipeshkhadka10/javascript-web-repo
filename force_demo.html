@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force someone</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            background-color: blueviolet;
+        }
+
+
+        .confess {
+            height: 40vh;
+            width: 30vw;
+            background-color: rgba(127, 55, 195, 0.919);
+            border: 2px transparent;
+            border-radius: 10px;
+            box-shadow: 10px 10px 60px blue, inset -10px -10px 60px rgba(31, 47, 29, 0.789);
+        }
+
+        .question {
+            font-family: Arial, Helvetica, sans-serif, Times, serif;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 10vh;
+
+        }
+
+        .btn_grps {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 13vh;
+            gap: 10px;
+        }
+
+        button {
+            height: 30px;
+            width: 80px;
+            border: 2px solid rgb(181, 107, 255);
+            border-radius: 4px;
+            box-shadow: 2px 2px 6px rgb(117, 64, 64);
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #no_btn {
+            position: absolute;
+            left: 15vw;
+        }
+
+        #yes_btn {
+            position: absolute;
+            right: 15vw;
+
+        }
+
+        .confess #date {
+            position: absolute;
+            top: 64vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="confess">
+        <h2 class="question">do you play football ?</h2>
+        <div class="btn_grps">
+            <button id="yes_btn">yes</button>
+            <button id="no_btn">no</button>
+
+        </div>
+        <button id="date">fix date</button>
+    </div>
+
+    <script>
+        const confess = document.querySelector('.confess');
+        const question = document.querySelector('.question');
+        const yes_btn = document.getElementById('yes_btn');
+        const no_btn = document.getElementById('no_btn');
+        const date =document.getElementById('date');
+        
+        date.style.display='none';
+
+        yes_btn.addEventListener('click', () => {
+            question.innerHTML = 'i love too :)';
+            date.style.display='block';
+            date.addEventListener('click',()=>
+            {
+                let date = new Date();
+            })
+       
+        })
+
+        const confessX = confess.getBoundingClientRect();
+        const no_btny = no_btn.getBoundingClientRect();
+        no_btn.addEventListener('mouseover', () => {
+
+            const i = Math.floor(Math.random() * (confessX.width - no_btny.width)) + 1;
+            const j = Math.floor(Math.random() * (confessX.height - no_btny.height)) + 1;
+            no_btn.style.left = i + "px";
+            no_btn.style.top = j + "px";
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
