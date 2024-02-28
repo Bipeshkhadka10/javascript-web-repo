@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promises practise</title>
+</head>
+
+<body>
+    <h2>promises and async await concept</h2>
+    <script>
+
+        // <-------call back and callback hell practise------>
+            const getdata=(data)=>{
+               return console.log("data is .....",data);
+            }
+
+           function hellovai(data,callback)
+           {
+            setTimeout(() => {
+                console.log("the data is loading");
+                console.log("data is .....",data);
+                if(callback){
+                callback(data);
+            }
+            }, 3000);
+
+            }
+
+            hellovai(1,()=>{
+                hellovai(2,()=>{
+                    hellovai(3);
+                })
+            });
+
+        // ----comment for the promises practise------
+        
+
+        
+
+        // <--------concept of promise channing-------->
+            
+
+        // async await concept and practise of async and await function
+        
+
+    </script>
+</body>
+
+</html>
