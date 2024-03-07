@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch_apis</title>
+</head>
+<body>
+    <div class="content">
+        <button id="btn">click me</button>
+        <h3 id="head"></h3>
+    </div>
+    <script>
+        
+        const URL =("https://api.artic.edu/api/v1/artworks");
+        const btn=document.querySelector("#btn");
+        const head=document.querySelector("#head");
+
+        const artfacts = async ()=>{
+            let response = await fetch(URL);
+            console.log("data is loading.....");
+            console.log(response);
+            const facts= await response.json();
+            console.log(facts);
+            console.log(facts.data[0].thumbnail);
+            head.innerHTML=facts.data[0].thumbnail;
+
+        }
+        btn.addEventListener('mouseover',artfacts);
+
+    </script>
+</body>
+</html>
